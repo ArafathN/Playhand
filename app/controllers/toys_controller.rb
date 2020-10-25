@@ -1,10 +1,11 @@
 class ToysController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update, :edit, :new, :destroy]
   before_action :set_toy, only: [:show, :edit, :update, :destroy]
 
   # GET /toys
   # GET /toys.json
   def index
-    @toys = Toy.all
+    @toys = Toy.all.where(availability:true)
   end
 
   # GET /toys/1
@@ -24,7 +25,7 @@ class ToysController < ApplicationController
   # POST /toys
   # POST /toys.json
   def create
-    @toy = Toy.new(toy_params)
+    @toy = current_user.toys.new(toy_params)
 
     respond_to do |format|
       if @toy.save

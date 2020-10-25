@@ -1,29 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-md-6">
+<%= image_tag "couch.jpg", class:"img-responsive" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @toy.name %>
-</p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @toy.description %>
-</p>
+<div class="col-md-6">
+<h3><%= @toy.name %></h3>
+<p>Description: <%=@toy.description %></p>
+<p>Condition: <%= @toy.condition %></p>
+<p class="text-center"><strong><%= @toy.price %>€</strong></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @toy.price %>
-</p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @toy.availability %>
-</p>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @toy.condition %>
-</p>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_toy_path(@toy) %> |
+<%= link_to 'Edit', edit_toy_path(@toy) %>
 <%= link_to 'Back', toys_path %>
