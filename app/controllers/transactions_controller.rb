@@ -6,9 +6,9 @@ class TransactionsController < ApplicationController
 
         begin
             charge = Stripe::Charge.create(
-                amount: toy.price
-                currency: "eur"
-                card: token
+                amount: toy.price,
+                currency: "eur",
+                card: token,
                 description: current_user.email)
 
             @sale = toy.sales.create!(buyer_email: current_user.email)

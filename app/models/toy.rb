@@ -5,4 +5,8 @@ class Toy < ApplicationRecord
     
     belongs_to :user
     has_many :sales
+
+    validates_numericality_of :price,
+    greater_than: 1,message: "Price must be atleast 1€"
+    
 end
