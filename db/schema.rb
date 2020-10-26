@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_105150) do
+ActiveRecord::Schema.define(version: 2020_10_26_124620) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2020_10_26_105150) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.string "buyer_email"
+    t.string "seller_email"
+    t.integer "amount"
+    t.string "uuid"
+    t.integer "toy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "toys", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -33,6 +43,11 @@ ActiveRecord::Schema.define(version: 2020_10_26_105150) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "slug"
+    t.string "picture"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["slug"], name: "index_toys_on_slug", unique: true
   end
 

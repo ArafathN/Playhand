@@ -22,6 +22,9 @@ gem 'simple_form'
 gem 'devise'
 gem "cancan"
 gem 'friendly_id', '~> 5.4.0'
+gem "paperclip", "~> 6.0.0"
+gem 'dotenv-rails', groups: [:development, :test]
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
